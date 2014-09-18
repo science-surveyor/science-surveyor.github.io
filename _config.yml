@@ -11,7 +11,7 @@ tagline:          Context on Deadline
 description:      A citation-based algorithm to improve science journalism
 url:              http://getpoole.com
 paginate:         1
-baseurl:          /
+baseurl:          science-surveyor/science-surveyor.github.io/
 author:
   name:           Mark Otto
   url:            https://twitter.com/mdo
