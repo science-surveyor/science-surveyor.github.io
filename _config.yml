@@ -1,16 +1,17 @@
 # Dependencies
 markdown:         redcarpet
-pygments:         true
+highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
 
 # Setup
-title:            Poole
-tagline:          The Jekyll Butler
+title:            Science Surveyor
+tagline:          Context on Deadline
+description:      A citation-based algorithm to improve science journalism
 url:              http://getpoole.com
 paginate:         1
-baseurl:          https://science-surveyor.github.io/
+baseurl:          /
 author:
   name:           Mark Otto
   url:            https://twitter.com/mdo
