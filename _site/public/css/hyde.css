@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "Gotham", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -57,7 +57,7 @@ html {
   text-align: center;
   padding: 2rem 1rem;
   color: #E2DACF;
-  background-color: #423F4F;
+  background-color: #565E75;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -79,13 +79,26 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Gotham", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-size: 3.25rem;
+  line-height: 85%;
+  font-weight: 700;
+}
+
+.sidebar-about h2 {
+  color: #8096A5;
+  margin-top: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-size: 1.44rem;
+  line-height: 125%;
+  font-weight: 700;
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  line-height: 125%;
 }
 .sidebar-nav-item {
   display: block;
@@ -96,6 +109,22 @@ a.sidebar-nav-item:focus {
 }
 .sidebar-nav-item.active {
   font-weight: bold;
+}
+
+.sidebar-lead {
+  color: #E2DACF;
+  font-weight: 200;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  line-height: 110%;
+  font-size: 1.35rem;
+}
+
+.sidebar-footer {
+  color: #E2DACF;
+  font-weight: 200;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  line-height: 110%;
+  font-size: .8rem;
 }
 
 /* Sticky sidebar
