@@ -4,13 +4,26 @@
  <title>Science Surveyor</title>
  <link href="http://getpoole.com/atom.xml" rel="self"/>
  <link href="http://getpoole.com/"/>
- <updated>2014-10-16T15:59:21-04:00</updated>
+ <updated>2014-10-30T09:48:30-04:00</updated>
  <id>http://getpoole.com</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Bisecting 2D Layered Citation Networks</title>
+   <link href="http://getpoole.com/2014/10/30/bisecting-2d-layered-citation-networks/"/>
+   <updated>2014-10-30T00:00:00-04:00</updated>
+   <id>http://getpoole.com/2014/10/30/bisecting-2d-layered-citation-networks</id>
+   <content type="html">&lt;p&gt;On a recent afternoon, discussions of layers lead the Science Surveyor team to consider the &amp;quot;z&amp;quot; dimension. ​Can our algorithms triangulate?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dl.dropboxusercontent.com/u/7595728/Thoroughly_Fried.png&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Since then Dennis has been dreaming of bicecting 2D layered citation networks, his mind &lt;em&gt;thoroughly fried&lt;/em&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Science Surveyor Goes Rorschach</title>
