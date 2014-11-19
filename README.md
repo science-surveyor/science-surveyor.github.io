@@ -8,3 +8,5 @@ Team members include:
 - Laura Kurgan
 - Juan Francisco Saldarriaga
 - Annelie Berner
+
+And other collaborators.
