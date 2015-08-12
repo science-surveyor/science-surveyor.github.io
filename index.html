@@ -1,37 +1,78 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Science Surveyor, A citation-based algorithm to improve science journalism.">
+    <meta name="author" content="Juan Francisco Saldarriaga, Marguerite Holloway, Dennis Tenen, Laura Kurgan">
+    <title>Science Surveyor</title>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this site -->
+    <link href="css/site-specific.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Science Surveyor</h1>
+        <p>A citation-based algorithm to improve science journalism.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <div class="intro">
+            <h1>Science Surveyor</h1>
+            <h2>Problem:</h2>
+            <p>A science reporter must rapidly get a sense of what has come before in the field, understand whether the new paper represents a significant advance or not, and establish whether this finding is an outlier or part of the field’s consensus.</p>
+            <h2>Solution:</h2>
+            <p>SCIENCE SURVEYOR, a tool that can help science journalists and others to rapidly and effectively characterize the scientific literature for any topic they might cover, as a way to inform and assist news judgment and reporting.<br><br>We see the development of such a tool as having the potential to greatly improve science news coverage, making it more independent, contextualized, and investigative. If successful, the tool will have wider use as well. Scientists and other researchers would use it to improve communication about their fields and practice within their fields. Members of the public would use it to engage with the specialized literature in new ways.</p>
+          </div>
+          <div class="team">
+            <h1>Team</h1>
+            <p>Our <i>inter-disciplinary / multi-departmental / bicoastal</i> team consists of:
+              <ul>
+                <li><a href="http://www.journalism.columbia.edu/profile/43-marguerite-holloway/10">Marguerite Holloway</a> (Metaphysical Shepherd)</li>
+                <li><a href="http://denten.plaintext.in/">Dennis Tenen</a> (Research Guru)</li>
+                <li><a href="http://spatialinformationdesignlab.org/people.php?id=10">Laura Kurgan</a> (Official Investigator)</li>
+                <li><a href="http://juanfrans.com/">Juan Francisco Saldarriaga</a> (Data Visualization & Design Lead)</li>
+              </ul>
+            </p>
+            <h2>Advisors:</h2>
+            <p>A science reporter must rapidly get a sense of what has come before in the field, understand whether the new paper represents a significant advance or not, and establish whether this finding is an outlier or part of the field’s consensus.</p>
+            <h2>Solution:</h2>
+            <p>SCIENCE SURVEYOR, a tool that can help science journalists and others to rapidly and effectively characterize the scientific literature for any topic they might cover, as a way to inform and assist news judgment and reporting.<br><br>We see the development of such a tool as having the potential to greatly improve science news coverage, making it more independent, contextualized, and investigative. If successful, the tool will have wider use as well. Scientists and other researchers would use it to improve communication about their fields and practice within their fields. Members of the public would use it to engage with the specialized literature in new ways.</p>
+          </div>
+        </div>
+        <div class="col-md-3" role="complementary">
+          <nav class="sidebar">
+            <ul class="nav sidebar">
+              <li class>
+                <a href="#intro">Introduction</a>
+              </li>
+              <li class>
+                <a href="#team">Team</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

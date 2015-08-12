@@ -1,0 +1,50 @@
+/* Jumbotron */
+.jumbotron {
+	background-color: #565E75;
+	color: #FFFFFF;
+}
+
+.jumbotron .container h1 {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 4.5em;
+	font-style: normal;
+	font-weight: 400;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.jumbotron .container p {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 2em;
+	font-style: normal;
+	font-weight: 300;
+}
+
+/* Content */
+h1 {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+h2 {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+p {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 300;
+}
+
+ul {
+	font-family: 'Lato', helvetica, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 300;
+}
