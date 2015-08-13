@@ -67,12 +67,28 @@ ul {
 }
 
 /* Sidebar */
-.sidebar.affix {
-    position: fixed;
-    top:25px;
-    width:228px;
+
+.affix{
+	top:0;
 }
 
-.affix,.affix-top {
-   position:static;
+.sidebar{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.nav>li>a{
+	padding: 4px 20px;
+	font-size: 16px;
+	font-weight: 300;
+	font-family: 'Lato', helvetica, sans-serif;
+}
+
+.back-to-top {
+	padding: 4px 10px;
+	font-size: 16px;
+	font-weight: 300;
+	font-family: 'Lato', helvetica, sans-serif;
+	margin-left: 10px;
+	margin-top: 10px;
 }
