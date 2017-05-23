@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/stylish.css">
+  <script type="text/javascript" src="../p5/p5.js"></script>
+  <style>
+    html, body{
+     margin: 0;
+     padding: 0;
+     background: white;
+   }
+ </style>
+</head>
+<script type="text/javascript">
+
+	var str;
+	var topTextMargin;
+  var rightTxtMargin;
+  var bottomMargin;
+  var rectSize;
+  var c1;
+  var c2;
+
+  var hooverscoreList;
+  var articles = [];
+  var closest;
+
+  var titleFont;
+  var listFont;
+
+  var howThisWorks = false;
+  var txt;
+  var hyperlink;
+
+  p5.disableFriendlyErrors = true;
+
+  function preload() {
+    titleFont = loadFont('fonts/Rubik-Medium.ttf');
+    listFont = loadFont ('fonts/Rubik-Regular.ttf');
+    hooverscoreList = loadStrings('data/depression_consensus_hoover25.txt');
+  }
+
+  function setup() {
+    createCanvas(990, 800);
+
+    readData();
+
+    margin = width/30;
+    topTextMargin = 3 * margin;
+    bottomMargin = height - 2.5 * margin;
+    rightTxtMargin = width - margin;
+    rectSize = (width - 2 * margin) / 25;
+    c1 = color(195, 222, 232);
+    c2 = color(10, 177, 209);
+    str = "We identified a tantalizing, tentative pattern that, if substantiated, might help journalists identify a study as “mainstream” or “outlier.” The latter would suggest a need for perhaps more extensive reporting because unusual findings can sometimes prove to be an exciting new realm of research, and sometimes they are anomalous because they don’t hold up in the long run. The Agreement Score indicates whether the new study cites similar ones. Initial research suggests that studies with atypical (perhaps “outlier”) findings have low agreement scores—they cite fewer studies similar to them. Studies with usual (perhaps “consensus-like”) results have high agreement scores—they cite more papers that are similar. In our research so far, the lowest Agreement Score we have seen is 0. The highest we have observed is 6."
+  }
+
+  function draw() {
+    background(250);
+
+    fill(0);
+    noStroke();
+    textAlign(CENTER, CENTER);
+    textFont(titleFont);
+    textSize(21);
+    text("Mainstream or Outlier?", width / 2, margin);
+
+    textFont(listFont);
+    textAlign(LEFT, TOP);
+    textSize(18);
+    text(str, margin, topTextMargin, width - 2 * margin, height - 5 * margin);
+
+    // Hooverscore Rectangle
+    rectMode(CENTER);
+    stroke(0);
+    noFill();
+    strokeWeight(2);
+    rect(width/2, height/2, 3 * margin, 3 * margin);
+    fill(0);
+    noStroke();
+    textSize(60);
+    textFont(listFont);
+    textAlign(CENTER, CENTER);
+    text("1", width/2, height/2);
+    textSize(14);
+    text("Agreement Score", width/2, height/2 - 1.9 * margin);
+
+     // Top 25 Bar
+     textSize(14);
+     textAlign(LEFT, BOTTOM);
+     text("Top 25 most similar studies (hover over tiles to display info):", margin, height/2 + 3.7 * margin);
+
+     textAlign(CENTER, CENTER);
+     for (var i = 0; i < articles.length; i ++) {
+      articles[i].display(margin + i * rectSize, height/2 + 4 * margin);
+      fill(0);
+      noStroke();
+      text(i + 1, margin + i * rectSize + rectSize / 2, height/2 + 4 * margin + rectSize / 2);
+    }
+
+    for (var i = 0; i < articles.length; i ++) {
+     articles[i].displayCited(margin + i * rectSize, height/2 + 4 * margin);
+   }
+
+   if (closest != null && mouseX > margin && mouseX < width - margin && mouseY > height/2 + 4 * margin && mouseY < height/2 + 4 * margin + rectSize) {
+    closest.displayInfo();
+  }
+
+    // Legend
+    rectMode(CORNER);
+    noFill();
+    stroke(255, 35, 35);
+    rect(margin, height - 3 * margin, rectSize, rectSize);
+    noStroke();
+    fill(255, 35, 35);
+    textAlign(LEFT, CENTER);
+    text("Cited studies are outlined in red", 2.5 * margin, height - 3 * margin + rectSize/2);
+
+    // How this works button
+    hyperlink = "How this works";
+    textAlign(RIGHT, CENTER);
+    fill(0);
+    textSize(14);
+    text(hyperlink, rightTxtMargin, bottomMargin);
+    noFill();
+    stroke(0);
+    strokeWeight(0.9);
+    line(rightTxtMargin, bottomMargin + textDescent() + 3, rightTxtMargin - textWidth(hyperlink), bottomMargin + textDescent() + 3);
+
+    if (howThisWorks) {
+      hyperlink = "Close";
+      fill(250);
+      noStroke();
+      rect(0, 2 * margin, width, height - 2 * margin);
+      var basics = "To compute the agreement score, Science Surveyor identified the top 25 most similar studies to the new study, again using tf-idf.  The agreement score shows the number of these linguistically similar studies that new study actually cites.";
+      fill(0);
+      textAlign(LEFT, TOP);
+      textFont(listFont);
+      textSize(16);
+      text(basics, margin, topTextMargin, width - 2 * margin, height - 5 * margin);
+      textSize(14);
+      textAlign(RIGHT, CENTER);
+      text(hyperlink, width - margin, bottomMargin);
+      stroke(0);
+      strokeWeight(0.9);
+      line(rightTxtMargin, bottomMargin + textDescent() + 3, rightTxtMargin - textWidth(hyperlink), bottomMargin + textDescent() + 3);
+    }
+
+    if (mouseX > rightTxtMargin - textWidth(hyperlink) && mouseX < rightTxtMargin && mouseY > bottomMargin - textAscent() && mouseY < bottomMargin + textDescent() + 3) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
+  }
+
+  function readData () {
+    for (var i = 1; i < hooverscoreList.length; i++) {
+      articles[i-1] = new Article (hooverscoreList[i]);
+    }
+  }
+
+  function mousePressed() {
+    if (mouseX > rightTxtMargin - textWidth(hyperlink) && mouseX < rightTxtMargin && mouseY > bottomMargin - textAscent() && mouseY < bottomMargin + textDescent() + 3) {
+      howThisWorks =! howThisWorks;
+    }
+  }
+
+  function Article (line) {
+    this.infoPieces = split (line, '\t');
+    this.articleName = this.infoPieces[6];
+    this.indegreeIN = this.infoPieces[1];
+    this.indegreOUT = this.infoPieces[3];
+    this.tf_idf = this.infoPieces[5];
+    this.year = this.infoPieces[7];
+    this.isCited = this.infoPieces[8];
+    this.authorNames = [];
+    var j = 0;
+    for (var i = 12; i < this.infoPieces.length; i+= 5) {
+      if (this.infoPieces[i] == ''){
+        break;
+      }
+      this.authorNames[j] = this.infoPieces[i];
+      j = j+1;
+    }
+
+    this.display = function (x, y) {
+      var d = dist(x + rectSize/2, y + rectSize/2, mouseX, mouseY);
+      if (d < rectSize/2 && mouseX > margin && mouseX < width - margin && mouseY > height/2 + 4 * margin && mouseY < height/2 + 4 * margin + rectSize) {
+        closest = this;
+      }
+      stroke(c2);
+      if (closest == this && mouseX > margin && mouseX < width - margin && mouseY > height/2 + 4 * margin && mouseY < height/2 + 4 * margin + rectSize) {
+        fill(c2);
+      } else {
+        fill(c1);
+      }
+      rectMode(CORNER);
+      rect(x, y, rectSize, rectSize);      
+    }
+
+    this.displayCited = function (x, y) {
+      noFill();
+      if (this.isCited == 1) {
+        stroke(255, 35, 35);
+      } else {
+        noStroke();
+      }
+      rect(x, y, rectSize, rectSize);
+    }
+
+    this.displayInfo = function () {
+      noStroke();
+      fill(0);
+      textSize(14);
+      textFont(listFont);
+      textAlign(LEFT, CENTER);
+      text(this.articleName, margin, height/2 + 7 * margin);
+      text(this.authorNames, margin, height/2 + 7.6 * margin);
+    }
+  }
+
+</script>

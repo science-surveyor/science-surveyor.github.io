@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number				
+0.046296296	47215	0.009259259	1	0.037037037	4	0	A study of the conditions that require the removal of the child from the breast	1908	0	0		1	"Reed, CB"		reed_cb
+2.352380952	60910	0.00952381	1	2.342857143	246	0	Concerning unsual medical cases in old age	1911	0	0		1	"Alzheimer, A"		alzheimer_a
+0.625	63037	0.009615385	1	0.615384615	64	0	The cessation of mitosis in the central nervous system of the albino rat	1912	0	0		1	"Allen, E"		allen_e_91
+0.242718447	67966	0.009708738	1	0.233009709	24	0	Characteristic differences between recall and recognition	1913	0	0		1	"Hollingworth, HL"		hollingworth_hl
+0.101123596	126170	0.011235955	1	0.08988764	8	0	dfewfwefw	1927	0	0		1	"Westermark, N"		westermark_n

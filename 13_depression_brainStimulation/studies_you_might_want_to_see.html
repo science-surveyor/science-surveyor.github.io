@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/stylish.css">
+  <script type="text/javascript" src="../p5/p5.js"></script>
+  <style>
+    html, body{
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+  </style>
+</head>
+<script type="text/javascript">
+
+
+  var fiveMostCitedList;
+  var fiveRecentList;
+  var fiveOldestList;
+
+  var closest;
+  var mostCited = [];
+  var mostRecent = [];
+  var oldest = [];
+  var c1;
+
+  var margin;
+  var leftXmargin;
+  var topYListMargin1;
+  var topYListMargin2;
+  var topYListMargin3;
+  var topYSubtitleMargin1;
+  var topYSubtitleMargin2;
+  var topYSubtitleMargin3;
+  var rowHeight;
+  var rightXmargin;
+
+  var titleFont;
+  var listFont;
+
+  function preload() {
+    titleFont = loadFont('fonts/Rubik-Medium.ttf');
+    listFont = loadFont ('fonts/Rubik-Regular.ttf');
+    fiveMostCitedList = loadStrings('data/13_depression_brainStimulation_5MostCited.txt');
+    fiveRecentList = loadStrings('data/13_depression_brainStimulation_5recent.txt');
+    fiveOldestList = loadStrings('data/13_depression_brainStimulation_5oldest.txt');
+  }
+
+  function setup() {
+    createCanvas(990, 980);
+    readData();
+
+    margin = width/30;
+    leftXmargin = 0.5 * margin;
+    rightXmargin = width - 0.5 * margin;
+    rowHeight = 36;
+    topYListMargin1 = 3.5 * margin;
+    topYListMargin2 = topYListMargin1 * 2 + 5 * rowHeight;
+    topYListMargin3 = topYListMargin1 * 3 + 10 * rowHeight;
+    topYSubtitleMargin1 = 2.7 * margin;
+    topYSubtitleMargin2 = topYListMargin1 + 5 * rowHeight + topYSubtitleMargin1;
+    topYSubtitleMargin3 = topYListMargin1 * 2 + 10 * rowHeight + topYSubtitleMargin1;
+
+    c1 = color(195, 222, 232);
+  }
+
+  function draw() {
+    background(250);
+
+    fill(0);
+    noStroke();
+    textAlign(CENTER, CENTER);
+    textFont(titleFont);
+    textSize(21);
+    text("Studies You Might Want to See", width / 2, margin);
+
+    // Subtitles
+    textSize(14);
+    text("Five most cited studies in the context:", width / 2, topYSubtitleMargin1);
+    text("Five most cited studies in recent years:", width / 2, topYSubtitleMargin2);
+    text("Five oldest studies in the context:", width / 2, topYSubtitleMargin3);
+
+
+    textAlign(LEFT, BOTTOM);
+    textFont(listFont);
+    fill(255, 35, 35);
+    text("Cited studies are in red", margin, height - margin);
+
+    // Lists
+    textFont(listFont);
+    fill(0);
+    noStroke();
+    for (var i = 0; i < 5; i++) {      
+      mostCited[i].display(margin, width - margin, topYListMargin1 + rowHeight/2 + i * rowHeight);
+      mostRecent[i].display(margin, width - margin, topYListMargin2 + rowHeight/2 + i * rowHeight);
+      oldest[i].display(margin, width - margin, topYListMargin3 + rowHeight/2 + i * rowHeight);
+    }
+    for (var i = 0; i <= 5; i++) {
+      dottedLine(leftXmargin, rightXmargin, topYListMargin1 + i * rowHeight);
+      dottedLine(leftXmargin, rightXmargin, topYListMargin2 + i * rowHeight);
+      dottedLine(leftXmargin, rightXmargin, topYListMargin3 + i * rowHeight);
+    }
+  }
+
+  function dottedLine(x1, x2, y) {
+    for (var i = 0; i <= 150; i++) {
+      var x = lerp(x1, x2, i / 150);
+      stroke(0, 200);
+      noFill();
+      strokeWeight(1);
+      strokeCap(ROUND);
+      point(x, y);
+    }
+  }
+
+  function readData() {
+
+    for (var i = 1; i < fiveMostCitedList.length; i++) {
+      mostCited[i-1] = new Article (fiveMostCitedList[i]);
+      mostRecent[i-1] = new Article (fiveRecentList[i]);
+      oldest[i-1] = new Article (fiveOldestList[i]);
+    }
+  }
+
+  function Article (line) {
+    this.infoPieces = split (line, '\t');
+    this.articleName = this.infoPieces[6];
+    this.indegreeIN = this.infoPieces[1];
+    this.indegreOUT = this.infoPieces[3];
+    this.tf_idf = this.infoPieces[5];
+    this.year = this.infoPieces[7];
+    this.isCited = this.infoPieces[8];
+    this.authorNames = [];
+    var j = 0;
+    for (var i = 12; i < this.infoPieces.length; i+= 5) {
+      if (this.infoPieces[i] == ''){
+        break;
+      }
+      this.authorNames[j] = this.infoPieces[i];
+      j = j+1;
+    }
+
+    this.display = function (x1, x2, y) {
+      var d = dist (x1, y, x1, mouseY);
+      if (d < rowHeight/2) {
+        closest = this;
+      }
+      if (closest == this && mouseY > y - rowHeight/2 && mouseY < y + rowHeight/2) {
+        fill(c1);
+        rect(0, y - rowHeight/2, width, rowHeight);
+        if (this.isCited == 1) {
+          fill(255, 35, 35);
+        } else {
+          fill(0);
+        }
+        textAlign(LEFT, CENTER);
+        text(this.authorNames, x1, y);
+        textAlign(RIGHT, CENTER);
+        text(this.year, x2, y);
+      } else {
+        if (this.isCited == 1) {
+          fill(255, 35, 35);
+        } else {
+          fill(0);
+        }
+        textAlign(LEFT, CENTER);
+        text(this.articleName, x1, y);
+        textAlign(RIGHT, CENTER);
+        text(this.year, x2, y);
+      }
+    }
+  }
+
+</script>

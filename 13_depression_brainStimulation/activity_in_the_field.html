@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/stylish.css">
+  <script type="text/javascript" src="../p5/p5.js"></script>
+  <style>
+    html, body{
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+  </style>
+</head>
+<script type="text/javascript">
+
+  var activityTable;
+  var activeYears = []
+  var years = [];
+  var timeSpan;
+  var numOfArticles = [];
+  var activity = [];
+  var yearIndegree = [];
+  var influence = [];
+  var citedByTarget = [];
+  var citedByTarget_ = [];
+  var maxArticles;
+  var maxIndegree;
+  var maxCited;
+  var firstYear;
+  var lastYear;
+  var rowCount;
+
+// Margins
+var margin;
+var yearWidth;
+var bottomBarsMargin;
+var bottomButtonsMargin;
+var bottomMargin;
+var topBarsMargin;
+var barsHeight;
+var topTextMargin;
+var rightTxtMargin;
+
+// Y-Axis
+var n;
+var spacing;
+var yReach;
+
+var titleFont;
+var listFont;
+var txtHeight;
+
+var c1;
+var c2;
+var c;
+
+
+// Bars
+var yearBars = [];
+var closestDist;
+var closest;
+
+var damping = 0.3;
+var arrangeBy = 1;
+var arrange1 = "Year";
+var arrange2 = "Number of studies";
+var arrange3 = "Citations";
+var buttonX1;
+var buttonX2;
+var buttonX3;
+
+var howThisWorks = false;
+var txt;
+var hyperlink;
+
+p5.disableFriendlyErrors = true;
+
+function preload () {
+  activityTable = loadTable ("data/year_stats-16427178_20161118-085406.tsv", "tsv", "header");
+  titleFont = loadFont('fonts/Rubik-Medium.ttf');
+  listFont = loadFont ('fonts/Rubik-Regular.ttf');
+}
+
+function setup() {
+  createCanvas(990, 600);
+  textSize(14);
+  txtHeight = (textAscent(listFont) + textDescent(listFont));
+
+  c1 = color(195, 222, 232);
+  c2 = color(10, 177, 209);
+  r1 = color(255, 180, 180);
+  r2 = color(255, 35, 35);
+
+  angleMode(DEGREES);
+
+  rowCount = activityTable.getRowCount();
+  for (var i = 0; i < rowCount; i++) {
+    activeYears[i] = activityTable.getNum (i, 0);
+    activity[i] = activityTable.getNum (i, 2);
+    // influence[i] = activityTable.getNum (i, 4); // indegree in context
+    influence[i] = activityTable.getNum (i, 8); // indegree total
+    citedByTarget_[i] = activityTable.getNum (i, 1);
+  }
+
+  firstYear = min(activeYears);
+  lastYear  = max(activeYears);
+  timeSpan = lastYear - firstYear;
+  margin = width/30; 
+  yearWidth = (width - 2 * margin) / timeSpan;
+
+  // Margins
+  bottomBarsMargin = height - 4 * margin;
+  topBarsMargin = 4 * margin;
+  barsHeight = bottomBarsMargin - topBarsMargin;
+  bottomButtonsMargin = height - 2.2 * margin;
+  bottomMargin = height - margin;
+  topTextMargin = 2.2 * margin;
+  rightTxtMargin = width - margin;
+  buttonX1 = 4.5 * margin;
+  buttonX2 = 7.5 * margin;
+  buttonX3 = 13.5 * margin;
+
+
+  for (var i = 0; i < timeSpan + 1; i++) {
+    years.push (firstYear + i);
+  }
+
+  // Fill array with inactive years
+  for (var i = 0; i < years.length; i++) {
+    var targetActivity = 0;
+    var targetInfluence = 0;
+    var tagetCited = 0;
+    for (var row = 0; row < activeYears.length; row++) {
+      if (years[i] == activeYears[row]) {
+        targetActivity = activity[row];
+        targetInfluence = influence[row];
+        targetCited = citedByTarget_[row];
+      }
+    }
+    numOfArticles.push(targetActivity);
+    yearIndegree.push(targetInfluence);
+    citedByTarget.push(targetCited);
+  }
+
+  maxArticles = max(numOfArticles);
+  maxIndegree = max(yearIndegree);
+  maxCited = max(citedByTarget);
+
+  for (var i = 0; i < years.length; i++) {
+    yearBars.push (new Bar(i, years[i], numOfArticles[i], yearIndegree[i], citedByTarget[i], width/2));
+  }  
+
+  // Y-axis variables
+  n = 100;
+  spacing = n * (barsHeight / maxArticles);
+  yReach = spacing * 5;
+  println(spacing);
+}
+
+
+function draw() {
+  background(250);
+
+  fill(0);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textFont(titleFont);
+  textSize(21);
+  text("Activity in the Field", width / 2, margin);
+
+  for (var i = 0; i < yearBars.length; i++) {
+    var posX = map(years[i], firstYear, lastYear, margin, width - 2 * margin);
+    yearBars[i].updateLocation(posX);
+    yearBars[i].display();
+    yearBars[i].getClosestYear();
+  }
+
+  textAlign(LEFT, TOP);
+  textFont(listFont);
+  textSize (14);
+  text("Top 10 words defining the field:", margin, topTextMargin);
+  text("Year:\nPublished studies:\nCited by this study:", margin, topBarsMargin - 0.5 * margin);
+  textFont(titleFont);
+  text("neuron, patient, receptor, cell, brain, rat, cortex, disorder, depression, response", 7.5 * margin, topTextMargin);
+
+  if (closest != null && mouseY < bottomBarsMargin + margin && mouseY > topBarsMargin) {
+    closest.displayInfo();
+  }
+
+  // Buttons
+  fill(0);
+  textAlign(LEFT, CENTER);
+  textFont(listFont);
+  textSize (14);
+  text("Arrange by:", margin, bottomButtonsMargin);
+  text(arrange1, buttonX1 + 0.5 * margin, bottomButtonsMargin);
+  text(arrange2, buttonX2 + 0.5 * margin, bottomButtonsMargin);
+  text(arrange3, buttonX3 + 0.5 * margin, bottomButtonsMargin);
+
+  noFill();
+  stroke(0);
+  strokeWeight(1);
+  ellipse(buttonX1, bottomButtonsMargin, 12, 12);
+  ellipse(buttonX2, bottomButtonsMargin, 12, 12);
+  ellipse(buttonX3, bottomButtonsMargin, 12, 12);
+
+  if (arrangeBy == 1) {
+    noStroke();
+    fill(0);
+    ellipse(buttonX1, bottomButtonsMargin, 9, 9);     
+  } else if (arrangeBy == 2) {
+    noStroke();
+    fill(0);
+    ellipse(buttonX2, bottomButtonsMargin, 9, 9);    
+  } else if (arrangeBy == 3) {
+    noStroke();
+    fill(0);
+    ellipse(buttonX3, bottomButtonsMargin, 9, 9);
+  }
+
+
+  // Gradient
+  text("Citation rate:  Low", width - 8.7 * margin, bottomButtonsMargin);
+  text("High", width - 1.9 * margin, bottomButtonsMargin);
+  for (var i = width - 5 * margin; i < width - 2 * margin; i++) {
+    var inter = map(i, width - 5 * margin, width - 2 * margin, 0, 1);
+    c = lerpColor(c1, c2, inter);    
+    stroke(c);
+    line (i, bottomButtonsMargin + 0.5 * yearWidth, i, bottomButtonsMargin - 0.5 * yearWidth);
+  }
+
+  // Y-axis
+  textAlign(RIGHT, CENTER);
+  fill(0);
+  noStroke();
+  textSize(yearWidth);
+  text("Number of Studies", width - margin, topBarsMargin - 0.5 * margin);
+  var counter = 0;
+  for (var y = 0; y <= yReach; y += spacing) {
+    noFill();
+    stroke(0);
+    strokeWeight(1);
+    line((width - 2 * margin) + yearWidth/2 + 1, bottomBarsMargin - y, (width - 2 * margin) + 1.5 * yearWidth - 1, bottomBarsMargin - y);
+    fill(0);
+    noStroke();
+    textAlign(LEFT, CENTER);
+    textSize(yearWidth - 2);
+    text(n * counter, (width - 2 * margin) + 1.5 * yearWidth + 3, bottomBarsMargin - y);
+    counter++;
+  }
+
+  hyperlink = "How this works";
+  textAlign(RIGHT, CENTER);
+  textSize(14);
+  fill(0);
+  text(hyperlink, rightTxtMargin, bottomMargin);
+  noFill();
+  stroke(0);
+  strokeWeight(0.9);
+  line(rightTxtMargin, bottomMargin + textDescent() + 3, rightTxtMargin - textWidth(hyperlink), bottomMargin + textDescent() + 3);
+
+  if (howThisWorks) {
+    hyperlink = "Close";
+    fill(250);
+    noStroke();
+    rect(0, 2 * margin, width, height - 2 * margin);
+    var basics = "Science Surveyor can arrange the articles in the context in several ways to provide information about history and patterns of publishing in this field. (The “field” is defined by citations and by language similarity; Science Surveyor reveals the top 10 words in the context so the terms of the “field” are clear. As in other panels, the most frequent words in the context are identified using tf-idf. ) The context can be arranged in straight chronology, or by number of papers published per year, or by rate of citations per year. Journalists can use these different views to identify active or significant years for the field and to see the duration of the field—sometimes, for instance, it can helpful to see the extent of the history of a field, or to track how active or not the field has been in recent years. In future, Science Surveyor will provide a list of all the papers for each year.";
+    fill(0);
+    textAlign(LEFT, TOP);
+    textFont(listFont);
+    textSize(16);
+    text(basics, margin, 3 * margin, width - 2 * margin, height - 5 * margin);
+    textAlign(RIGHT, CENTER);
+    textSize(14);
+    text(hyperlink, width - margin, bottomMargin);
+    stroke(0);
+    strokeWeight(0.9);
+    line(rightTxtMargin, bottomMargin + textDescent() + 3, rightTxtMargin - textWidth(hyperlink), bottomMargin + textDescent() + 3);
+  }
+
+  if (mouseX > rightTxtMargin - textWidth(hyperlink) && mouseX < rightTxtMargin && mouseY > bottomMargin - textAscent() && mouseY < bottomMargin + textDescent() + 3) {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
+}
+
+function Bar (order, yr, num, indegree, nCited, x_) {
+  this.order = order;
+  this.year = yr;
+  this.numOfArticles = num;
+  this.yearIndegree = indegree;
+  this.nCitedByTarget = nCited;
+  this.x = x_;
+  this.endX = x_;
+  this.barLength = map(this.numOfArticles, 0, maxArticles, 0, barsHeight);
+  this.colorAmtBlue = map(this.yearIndegree, 0, maxIndegree, 0, 1);
+  this.colorAmtRed = map(this.nCitedByTarget, 1, maxCited, 0, 1);
+  this.c = lerpColor(c1, c2, this.colorAmtBlue);
+
+  if (this.nCitedByTarget == 0) {
+    this.r = color(216, 216, 216);
+  } else {
+    this.r = lerpColor(r1, r2, this.colorAmtRed);
+  }
+
+  this.display = function () {
+    noFill();
+    if (closest == this && mouseY < bottomBarsMargin + margin && mouseY > topBarsMargin) {
+      stroke(83, 104, 120);
+    } else {
+      stroke(this.c);
+    }
+    strokeWeight(yearWidth - 2);
+    strokeCap(SQUARE);
+    this.x = this.x + (this.endX - this.x) * damping;
+    line(this.x, bottomBarsMargin, this.x, bottomBarsMargin - this.barLength);
+
+    //Years
+    fill(0);
+    noStroke();
+    textFont(listFont);
+    textSize(yearWidth - 2);
+    textAlign(RIGHT);
+
+    push();
+    translate(this.x, bottomBarsMargin + 4);
+    rotate(-90);
+    if (this.numOfArticles > 0) {
+      text(this.year, 0, 0);
+    }    
+    pop();
+  }
+
+  this.updateLocation = function (newX) {
+    this.endX = newX;
+  }
+
+  // Find closest year bar to mouse
+  this.getClosestYear = function () {
+    var d = dist(this.x, mouseY, mouseX, mouseY);
+    if (d < yearWidth/2 && mouseY < height - 1.5 * margin && mouseY > 2 * margin) {
+      closestDist = d;
+      closest = this;
+    }
+  }
+
+  this.displayInfo = function () {
+    fill(0);
+    noStroke();
+    textAlign(LEFT, TOP);
+    textSize (14);
+    if (this.numOfArticles > 0) {
+      text(this.year, 2.2 * margin, topBarsMargin - 0.5 * margin);
+      text(this.numOfArticles, 4.8 * margin, topBarsMargin - 0.5 * margin + txtHeight);
+      fill(255, 10, 10);
+      text(this.nCitedByTarget, 5 * margin, topBarsMargin - 0.5 * margin + 2 * txtHeight);
+    }
+  }
+}
+
+function sortByActivity(a,b) {
+  if (a.numOfArticles < b.numOfArticles) {
+    return -1;
+  }
+  if (a.numOfArticles > b.numOfArticles) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function sortByYear (a,b) {
+  if (a.order < b.order) {
+    return -1;
+  }
+  if (a.order > b.order) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function sortByInfluence (a,b) {
+  if (a.yearIndegree < b.yearIndegree) {
+    return -1;
+  }
+  if (a.yearIndegree > b.yearIndegree) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function sortByInfluenceOnTarget (a, b) {
+  if (a.nCitedByTarget < b.nCitedByTarget) {
+    return -1;
+  }
+  if (a.nCitedByTarget > b.nCitedByTarget) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+
+function mousePressed() {
+  if (mouseX > buttonX1 - 6 && mouseX < buttonX1 + 6 + 0.5 * margin + textWidth(arrange1) && mouseY > bottomButtonsMargin - 6 && mouseY < bottomButtonsMargin + 6) {
+    arrangeBy = 1;    
+    yearBars.sort(sortByYear);
+  }
+
+  if (mouseX > buttonX2 - 6 && mouseX < buttonX2 + 6 + 0.5 * margin + textWidth(arrange2) && mouseY > bottomButtonsMargin - 6 && mouseY < bottomButtonsMargin + 6) {
+    arrangeBy = 2;
+    yearBars.sort(sortByYear);   
+    yearBars.sort(sortByActivity);     
+  }
+
+  if (mouseX > buttonX3 - 6 && mouseX < buttonX3 + 6 + 0.5 * margin + textWidth(arrange3) && mouseY > bottomButtonsMargin - 6 && mouseY < bottomButtonsMargin + 6) {
+    arrangeBy = 3;
+    yearBars.sort(sortByYear);
+    yearBars.sort(sortByInfluence);
+  }
+
+  if (mouseX > rightTxtMargin - textWidth(hyperlink) && mouseX < rightTxtMargin && mouseY > bottomMargin - textAscent() && mouseY < bottomMargin + textDescent() + 3) {
+    howThisWorks =! howThisWorks;
+  }
+}
+
+
+
+
+</script>

@@ -1,0 +1,108 @@
+/* SCSS imports
+$c4sr-blue: rgb(40,170,225);
+$c4sr-yellow: rgb(255,255,130);
+*/
+
+
+body {
+	font-family: "Rubik", Helvetica, Arial, sans-serif;
+	font-weight:lighter;
+	font-size: 18px;
+}
+
+.row.c4sr-staff {
+	width: 100%;
+	margin-top: 90px;
+}
+
+.c4sr-more-bio {
+	display: inline;
+	margin-bottom: 1.4em;
+	cursor: pointer;
+}
+
+.c4sr-more-bio:hover {
+	display: inline;
+	color: blue;
+	margin-bottom: 1.4em;
+	cursor: pointer;
+}
+
+.c4sr-inline-bio {
+	display: inline;
+}
+
+.c4sr-current-staff-wrapper {
+	background: none;
+	width: 103%;
+	margin: auto;
+	margin-left: 34px;
+}
+
+.c4sr-staff-wrapper:nth-child(3n+1) {
+	clear: left;
+}
+
+.c4sr-funding-wrapper {
+	background: none;
+	width: 100%
+	margin: auto;
+}
+
+.c4sr-staff-wrapper {
+	
+	float: left;
+	width = 32.5%
+	margin-left: 34px;
+	padding: 20px;
+}
+
+.c4sr-staff-title-wrapper {
+	font-size: 33px;
+	line-height: 1.2em;
+	position: absolute;
+	max-width: 290px;
+}
+
+.c4sr-staff-image-wrapper {
+	margin: 70px 0 1.4em 0;
+}
+
+.row.c4sr-project-table.c4sr-publications {
+	padding: 20px 8px 20px 6px;
+}
+
+.row.c4sr-project-table.c4sr-publications.c4sr-grey-table {
+	color: red;
+	width: 101.5%;
+	margin-left: -6px;
+}
+
+.c4sr-more-bio {
+	border-bottom: 1px solid black;
+}
+
+a.c4sr-button {
+	width: 100%;
+	color: white;
+	float: left;
+	border: none;
+	background: #14a4bc;
+	border-radius: 0;
+	font-size: 75%;
+	padding: 11px;
+	margin-bottom: 20px;
+}
+
+a.casestudy-button {
+	width: 100%;
+	color: black;
+	float: left;
+	border: 2px solid #14a4bc;
+	background: #C4DEE8;
+	border-radius: 0;
+	font-size: 75%;
+	padding: 11px;
+	margin-bottom: 20px;
+}
+

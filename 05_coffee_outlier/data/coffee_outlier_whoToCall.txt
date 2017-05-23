@@ -1,0 +1,28 @@
+Author name	Email	# of Citations (age-tapered)	Average Similarity to Target	# of Studies in Context	# Cited by Target
+Mouridsen, S		0.055555556	0.14646293	1	0
+Sansom, C		0.07692308	0.1963496	1	0
+Guggenberger, G		0.0	0.16424467	1	0
+ADAMS, MA		0.04347826	0.17218043	1	0
+Schallenberg, M		0.0	0.15098536	1	0
+Morel, FMM		0.16666667	0.14218102	1	0
+Haumaier, L		0.0	0.16424467	1	0
+Szlavecz, A		0.07692308	0.1963496	1	0
+BUGG, CE		0.123333335	0.06742804	4	0
+Kaiser, K		0.0	0.16424467	1	0
+Martin, CE		0.0	0.15098536	1	0
+Newman, DK	dianne@mbcrr.harvard.edu	0.16666667	0.14218102	1	0
+Benyo, B	benyo@sze.hu	0.07692308	0.1963496	1	0
+Makino, W		0.07692308	0.15755327	1	0
+Ahmann, D		0.16666667	0.14218102	1	0
+Fordos, G		0.07692308	0.1963496	1	0
+DELUCAS, LJ		0.04	0.13485608	2	0
+Benyo, Z		0.07692308	0.1963496	1	0
+Kristensen, E		0.055555556	0.14646293	1	0
+Sterner, RW		0.23481782	0.124249786	2	0
+ATTIWILL, PM		0.04347826	0.17218043	1	0
+Elser, JJ		0.07692308	0.15755327	1	0
+Hansen, K		0.055555556	0.14646293	1	0
+Cotner, JB		0.07692308	0.15755327	1	0
+Bayer, TK	tina.bayer@gmx.net	0.0	0.15098536	1	0
+Biro, JC	jan.biro@kbh.ki.se	0.07692308	0.13828045	2	0
+Micsik, T		0.07692308	0.1963496	1	0

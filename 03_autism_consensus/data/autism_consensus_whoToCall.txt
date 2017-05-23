@@ -1,0 +1,75 @@
+Author name	Email	# of Citations (age-tapered)	Average Similarity to Target	# of Studies in Context	# Cited by Target
+Tonn, RT		0.0	1.0802525	1	0
+Sanders, J		0.0	1.0283111	1	0
+Melhem, NM		0.0	1.0537231	1	0
+Hart, BL		1.7656285	0.18142752	6	0
+Hughes, C	clare.hughes@iop.bpmf.ac.uk	10.670678	0.16171858	15	1
+Rogers, SJ		24.478224	0.31261215	37	4
+Shu, BC		0.4625	0.6109975	2	0
+Jurado, MA		0.2857143	0.5676224	2	0
+Chen, BC		0.4	1.221995	1	0
+Ikuta, I		0.14285715	0.917468	2	0
+Gill, M		1.2333333	0.17138518	6	1
+Miller, JN		3.6318657	0.21811469	7	0
+Wendelken, C		0.0	0.9963625	1	0
+Harris, RJ		2.0175438	0.8546824	3	0
+Hardan, AY	hardanay@stanford.edu	5.4993134	0.360365	9	1
+Ravizza, S		0.0	0.9963625	1	0
+Carmean, V		0.0	0.9963625	1	0
+Pennington, BF		31.519958	0.12234344	47	6
+FILLOUX, F		3.4141414	0.5104693	2	0
+Tonge, BJ		2.7772186	0.18583071	9	1
+Ozonoff, S		27.239487	0.21241368	32	5
+Schweinsburg, BC		0.0	1.6213295	1	0
+Botti, JAC		0.14285715	1.2025561	1	0
+Carter, C		0.04347826	0.49818125	2	0
+Bennetto, L		5.0683575	0.66289186	6	1
+Pabst, HF		1.3157895	1.0885651	1	0
+MCMAHON, WM		10.689869	0.14935146	18	1
+Burnette, CP		0.97619045	0.87185174	3	0
+Cohen, DN		0.0	1.6213295	1	0
+Brereton, AV		2.7772186	0.18583071	9	1
+Joseph, RM	rjoseph@shriver.org	4.3255	0.16912426	15	2
+Landa, RJ	Landa@KennedyKrieger.org	1.5885823	0.3896659	5	0
+Courchesne, E		71.06153	0.18386334	64	2
+Johnson, KA	johnsoka@tcd.ie	0.6527778	0.20566222	5	2
+Kilpatrick, M		0.61538464	1.5546747	1	1
+Chiron, C		2.2486906	0.15515183	9	0
+McEvoy, R		1.2	1.2201596	1	0
+Tien, AY		1.3598229	0.11109045	11	0
+Klinger, MR		0.48511904	0.5475873	2	1
+Renner, P		0.4375	0.865842	2	1
+Ciesielski, KT		3.1185539	0.52575517	6	0
+Mottron, L		7.9840474	0.11001351	23	0
+Ponsot, G		0.50969696	0.35690814	3	0
+Henry, ML		0.0	0.9963625	1	0
+Bradshaw, JL		6.6574445	0.025559358	46	1
+Kates, WR	katesw@upstate.edu	4.837228	0.3108573	13	0
+Palmer, P		10.021487	0.29228732	6	0
+Goldberg, MC		2.0007617	0.46369332	8	0
+Reiss, AL		15.597171	0.08339962	56	0
+Kazmerski, DB		0.14285715	1.2025561	1	0
+Leboyer, M		17.66564	0.11876538	32	0
+Bolte, S		0.09090909	0.49718246	2	0
+STRAYER, DL		6.3782563	0.20418772	5	0
+Mitchell, SR		0.14285715	1.2025561	1	0
+Jambaque, I		2.052218	0.24438098	6	0
+Kliegel, M		0.0	0.9943649	1	0
+Kleinhans, NM	nkleinha@u.washington.edu	0.125	0.8106648	2	0
+Muller, RA		12.564842	0.33761853	13	1
+Klinger, LG	lklinger@gp.as.ua.edu	1.0946429	0.4845882	4	1
+Obrzut, JE	jobrzut@u.arizona.edu	0.0	1.0802525	1	0
+Altgassen, M	altgassen@psychologie.tu-dresden.de	0.0	0.9943649	1	0
+Garavan, H		0.37662336	0.34277037	3	0
+Williams, TI		0.0	0.9943649	1	0
+Jou, RJ		0.25	0.52686155	2	0
+Piven, J		21.673725	0.13324489	34	1
+Tatusko, DH		0.14285715	1.2025561	1	0
+Rivera, SM		0.0	0.9963625	1	0
+Lung, FW		0.4625	0.6109975	2	0
+Plumet, MH		2.7507002	0.32920155	5	0
+Carper, RA	ruth@brain.ucsd.edu	19.74421	0.4735528	9	2
+Rinehart, NJ	Nicole.Rinehart@med.monash.edu.au	2.9402778	0.13063672	9	1
+Corbett, BA	blythe.corbett@ucdmc.ucdavis.edu	0.3	0.44039318	3	0
+Verger, K		0.0	1.1352448	1	0
+Gallagher, L		0.11111111	0.51415557	2	0

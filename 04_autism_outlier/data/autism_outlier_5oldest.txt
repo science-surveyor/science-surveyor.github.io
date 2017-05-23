@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number					
+0.07079646	26008	0.008849558	1	0.061946903	7	0	Articles on the histological localisation of the cerebral cortex - Second Announcement The calcarina species	1903	0	0		1	"Brodmann, K"		brodmann_k	
+5.901785714	30075	0.026785714	3	5.875	658	0	General intelligence  objectively determined and measured	1904	0	0		1	"Spearman, C"		spearman_c	
+0.345454545	38507	0.018181818	2	0.327272727	36	0	Some racial peculiarities of the Negro brain	1906	0	0		1	"Bean, RB"		bean_rb	
+0.559633028	45289	0.036697248	4	0.52293578	57	0	"A NEW TOPOGRAPHICAL SURVEY OF THE HUMAN CEREBRAL CORTEX, BEING AN ACCOUNT OF THE DISTRIBUTION OF THE ANATOMICALLY DISTINCT CORTICAL AREAS AND THEIR RELATIONSHIP TO THE CEREBRAL SULCI."	1907	0	0		1	"Smith, GE"		smith_ge	Smith
+0.317757009	52694	0.009345794	1	0.308411215	33	0	"On several anatomical characters of the human brain, said to vary according to race and sex, with aspecial reference to the weight of the frontal lobe."	1909	0	0		1	"Mall, FP"		mall_fp	

@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number														
+0.102272727	129887	0.011363636	1	0.090909091	8	0	Contribution to the chemical composition of peat II Chemical composition of various peat profiles	1928	0	0		2	"Stevens, KR"		stevens_kr		1	"Waksman, SA"		waksman_sa					
+0.26744186	143897	0.011627907	1	0.255813953	22	0	Biological decomposition of some types of litter from north American forests	1930	0	0		1	"Melin, E"		melin_e_1										
+1.279069767	334402	0.046511628	2	1.23255814	53	0	"CARBON-DIOXIDE EVOLUTION FROM 2 TEMPERATE, DECIDUOUS WOODLAND SOILS"	1973	0	0		1	"ANDERSON, JM"		anderson_jm										
+0.56097561	352067	0.048780488	2	0.512195122	21	0	A Study of Mixed Continuous Cultures of Sulfate-Reducing and Methane-Producing Bacteria	1975	0	0		1	"Cappenberg, TE"		cappenberg_te	Cappenberg									
+0.902439024	359335	0.146341463	6	0.756097561	31	0	"VEGETATION AND CHEMICAL PROPERTIES OF PATTERNED FENS IN SWAN HILLS, NORTH CENTRAL ALBERTA"	1975	0	0		2	"ACHUFF, P"		achuff_p		3	"ANDRUS, RE"		andrus_re		1	"VITT, DH"		vitt_dh

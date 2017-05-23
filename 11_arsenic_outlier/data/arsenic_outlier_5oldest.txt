@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number									
+0.213483146	125356	0.011235955	1	0.202247191	18	0	The activity coefficient of gases in aqueous salt solutions	1927	0	0		2	"Failey, CF"		failey_cf		1	"Randall, M"		randall_m
+0.202247191	125579	0.011235955	1	0.191011236	17	0	"Practical applications of the statistics of repeated events, particularly to industrial accidents."	1927	0	0		1	"Newbold, EM"		newbold_em					
+0.024096386	164650	0.012048193	1	0.012048193	1	0	Mold growth test for minute amounts of arsenic	1933	0	0		2	"Cameron, EJ"		cameron_ej		1	"Smith, HR"		smith_hr
+0.12345679	176192	0.012345679	1	0.111111111	9	0	The formation of organo-metalloidal compounds by micro-organisms Part III Methylated alkyl- and dialkyl-arsines	1935	0	0		1	"Challenger, F"		challenger_f		2	"Ellis, L"		ellis_l_36
+74.51470588	250752	0.029411765	2	74.48529412	5065	0	A MATHEMATICAL THEORY OF COMMUNICATION	1948	0	0		1	"SHANNON, CE"		shannon_ce					

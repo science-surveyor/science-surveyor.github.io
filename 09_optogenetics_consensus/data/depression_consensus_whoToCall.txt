@@ -1,0 +1,88 @@
+Author name	Email	# of Citations (age-tapered)	Average Similarity to Target	# of Studies in Context	# Cited by Target
+Sackeim, HA		10.743777	0.025313655	60	0
+Hardesty, DE	dhardesty@neuro.columbia.edu	0.11111111	0.961509	1	0
+Alesch, F		16.071804	0.29467443	21	0
+Barreiros, MA		0.0	0.8188423	1	0
+Kalteis, K		1.2181818	0.46823728	3	0
+Rumia, J		0.0	1.0809109	1	0
+Benazzouz, A		85.81121	0.22193319	49	1
+Metman, LV	leonard_a_verhagen@rush.edu	5.4583755	0.25930917	24	0
+Savasta, M		15.31119	0.2521772	15	0
+Arita, K		1.8961039	0.43589932	2	0
+Mayberg, H		3.2306888	0.17504457	6	0
+Arantes, PR		0.0	0.8188423	1	0
+Lozano, AM		163.78242	0.26704663	143	7
+Kirsch-Darrow, L		0.5555556	0.72042155	2	0
+Fernandez-Gonzalez, F		0.0	0.8043087	1	0
+Arle, JE	jeffrey.arle@lahey.org	0.7352941	0.50214213	7	1
+Gale, JT		0.375	0.78151363	2	0
+Bakay, RAE	roy_bakay@rush.edu	35.241417	0.16776264	49	0
+Sudhyadhom, A		0.11111111	0.6486614	2	0
+Neimat, JS	jneimat@gmail.com	0.5694444	0.69936854	2	0
+Zhang, WM		0.0	1.1778067	2	0
+Chang, JY	jchang@triadbiz.rr.com	2.053574	0.58246005	8	0
+Walter, BL		3.8333333	0.44601274	3	0
+Haslinger, B	b.haslinger@lrz.tu-muenchen.de	8.139527	0.5354264	7	0
+Lozano, A		8.8006735	0.1907492	11	0
+Montgomery, EB	montgomery@neurology.wisc.edu	5.777654	0.18723157	17	0
+Lujan, JL		0.0	0.8615564	1	0
+Temel, Y	y.temel@np.unimaas.nl	5.348485	0.59970856	5	0
+Corcos, DM	dcorcos@uic.edu	4.2506733	0.30560127	16	0
+Seijo-Zazo, E		0.0	0.8043087	1	0
+Kelly, PJ		9.684702	0.14349188	16	0
+Rothwell, JC	j.rothwell@ion.ucl.ac.uk	30.116644	0.051148172	119	2
+Rosado, CA		0.11111111	0.86608964	1	0
+Goncalves, MR		0.0	0.8188423	1	0
+Valls-Sole, J	jvalls@clinic.ub.es	0.43441877	0.2532777	6	0
+Bova, FJ		0.15277778	0.43304482	2	0
+McIntyre, CC	mcintyc@ccf.org	22.15674	0.35255158	24	3
+Uc, EY		0.41313133	0.30788094	3	0
+Shi, LH		1.8692307	0.7799563	5	0
+Pahapill, P		2.7641025	0.6297591	2	1
+Stefurak, T	ts@rotman-baycrest.on.ca	1.2307693	0.85928285	1	0
+Trop, L		1.1818181	0.87179863	1	0
+Leite, CC		0.0	0.8188423	1	0
+Mohr, P	mohr@pcp.lf3.cuni.cz	0.0	0.9089461	1	0
+Valldeoriola, F		0.071428575	0.6608495	2	0
+Teixeira, MJ		0.0	0.8188423	1	0
+Vitek, JL	jvitek@emory.edu	69.23605	0.2975413	58	2
+Vaillancourt, DE	court1@uic.edu	3.22906	0.48936608	9	0
+Hutchison, WD		49.262135	0.3018756	36	1
+Sterio, D		15.179188	0.2536547	17	0
+Luo, F		0.0	1.1778067	2	0
+Hallett, M		26.17815	0.028803656	116	0
+Takeshita, S	takeshia@hiroshima-med.jrc.or.jp	1.1818181	0.87179863	1	0
+Beric, A		16.370855	0.23023035	19	0
+Kurisu, K		1.1818181	0.87179863	1	0
+Foote, KD		4.7029915	0.30663115	16	0
+Cardoso, EF		0.0	0.8188423	1	0
+Okun, MS	okun@neurology.ufl.edu	17.981003	0.32364184	24	0
+Lang, AE		129.82513	0.19803318	124	2
+Dostrovsky, JO	j.dostrovsky@utoronto.ca	55.863213	0.21423255	62	2
+Kiprovski, K		2.642857	0.8218105	1	0
+Shils, JL		0.6111111	0.45751265	7	1
+Ceballos-Baumann, AO		19.228216	0.23729753	23	0
+Amaro, E	eamaro@usp.br	0.0	0.8188423	1	0
+Chaturvedi, A		0.0	0.8615564	1	0
+Prodoehl, J	jwildi1@uic.edu	1.7611111	0.6550423	3	0
+Akimitsu, T		1.1818181	0.87179863	1	0
+Compta, Y		0.0	1.0809109	1	0
+Mogilner, AY		4.702381	0.30747274	8	0
+Verhoeff, NPLG		1.2406417	0.4436679	2	0
+Hevenor, S		1.4125874	0.42964143	2	0
+Seijo-Fernandez, F	fseijo@uniovi.es	0.0	0.8043087	1	0
+Saint-Cyr, J		12.434392	0.41605127	7	1
+Mei, LZ		0.25	0.8808792	2	0
+Follett, KA		0.2777778	0.3985629	3	0
+Yu, H		0.125	0.81429434	1	0
+Sukwinder, SS		0.0	0.8188423	1	0
+Alvarez-Vega, MA		0.22222222	0.6519457	2	0
+Visser-Vandewalle, V		5.348485	0.59970856	5	0
+Woodward, DJ		2.1220524	0.40711218	10	0
+Zonenshayn, M		6.4875	0.45317873	6	0
+Mikulis, D		1.2834008	0.42964143	2	0
+Costa, J		0.0	1.0809109	1	0
+Rezai, AR		16.070389	0.2307143	35	1
+Lozano-Aragoneses, B		0.0	0.8043087	1	0
+Boecker, H		16.672756	0.16309986	22	0
+Barbosa, ER		0.44475526	0.3894152	4	0

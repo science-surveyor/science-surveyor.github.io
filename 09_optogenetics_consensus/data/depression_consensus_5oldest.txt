@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number				
+0.362831858	25334	0.017699115	2	0.345132743	39	0	Retroactive amnesia: Illustrative cases and a tentative explanation.	1903	0	0		1	"Burnham, WH"		burnham_wh
+0.205607477	53567	0.009345794	1	0.196261682	21	0	The myeloarchitecture of the thalamus of the cercopithecus	1909	0	0		1	"Vogt, C"		vogt_c
+0.556603774	56918	0.009433962	1	0.547169811	58	0	The morphology of the forebrain in amphibia and reptilia	1910	0	0		1	"Herrick, CJ"		herrick_cj
+0.548076923	63037	0.009615385	1	0.538461538	56	0	The cessation of mitosis in the central nervous system of the albino rat	1912	0	0		1	"Allen, E"		allen_e_91
+0.081632653	89287	0.010204082	1	0.071428571	7	0	The laws of the voluntary reflex increase in its significance for the problems of hysteria and simulation	1918	0	0		1	"Kretschmer, E"		kretschmer_e

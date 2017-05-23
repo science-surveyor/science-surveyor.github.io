@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number				
+0.362831858	25334	0.008849558	1	0.353982301	40	0	Retroactive amnesia: Illustrative cases and a tentative explanation.	1903	0	0		1	"Burnham, WH"		burnham_wh
+0.046296296	47215	0.009259259	1	0.037037037	4	0	A study of the conditions that require the removal of the child from the breast	1908	0	0		1	"Reed, CB"		reed_cb
+2.238095238	60910	0.00952381	1	2.228571429	234	0	Concerning unsual medical cases in old age	1911	0	0		1	"Alzheimer, A"		alzheimer_a
+0.76344086	108412	0.010752688	1	0.752688172	70	0	The graphic rating scale	1923	0	0		1	"Freyd, M"		freyd_m
+0.494505495	115949	0.010989011	1	0.483516484	44	0	Purpose and cognition: The determiners of animal learning	1925	0	0		1	"Tolman, EC"		tolman_ec

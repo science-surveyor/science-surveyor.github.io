@@ -1,0 +1,6 @@
+Totals	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number					
+0.055045872	42510	0.009174312	1	0.04587156	5	0	Mathematical prodigies	1907	0	0		1	"Mitchell, FD"		mitchell_fd	
+0.055045872	42517	0.009174312	1	0.04587156	5	0	Studies in absolute pitch	1907	0	0		1	"Boggs, LP"		boggs_lp	
+0.559633028	45289	0.009174312	1	0.550458716	60	0	"A NEW TOPOGRAPHICAL SURVEY OF THE HUMAN CEREBRAL CORTEX, BEING AN ACCOUNT OF THE DISTRIBUTION OF THE ANATOMICALLY DISTINCT CORTICAL AREAS AND THEIR RELATIONSHIP TO THE CEREBRAL SULCI."	1907	0	0		1	"Smith, GE"		smith_ge	Smith
+0.067307692	64426	0.009615385	1	0.057692308	6	0	Some clinical psychological testing methods and their results - Together with an article on the psychopathology of Korsakow's psychosis	1912	0	0		1	"Schneider, K"		schneider_k	
+0.019230769	66369	0.009615385	1	0.009615385	1	0	PSYCHOLOGICAL ASPECTS OF DRUG ACTION	1912	0	0		1	"Hollingworth, HL"		hollingworth_hl	Hollingworth

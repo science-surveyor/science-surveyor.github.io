@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number				
+0.252336449	52681	0.009345794	1	0.242990654	26	0	The effect of the destruction of peripheral areas on the differentiation of the neuroblasts.	1909	0	0		1	"Shorey, ML"		shorey_ml
+0.171428571	59704	0.00952381	1	0.161904762	17	0	The development of the Purkinje cells and of the cortical layers in the cerebellum of the albino rat	1911	0	0		1	"Addison, WHF"		addison_whf
+0.170212766	101380	0.010638298	1	0.159574468	15	0	Studies of the brain stem VI. An experimental study of the corpus striatum of the pigeon as related to various instinctive types of behavior	1922	0	0		1	"Rogers, FT"		rogers_ft
+0.743902439	169914	0.012195122	1	0.731707317	60	0	The effects of wing bud extirpation on the development of the central nervous system in chick embryos	1934	0	0		1	"Hamburger, V"		hamburger_v_0
+4.56097561	172136	0.012195122	1	4.548780488	373	0	Studies on the structure of the cerebral cortex XI Continuation of the study of the ammonic system	1934	0	0		1	"de No, RL"		deno_rl

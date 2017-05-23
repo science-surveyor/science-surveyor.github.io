@@ -1,0 +1,6 @@
+TOTAL	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number				
+0.168141593	25334	0.008849558	1	0.159292035	18	0	Retroactive amnesia: Illustrative cases and a tentative explanation.	1903	0	0		1	"Burnham, WH"		burnham_wh
+0.221153846	63037	0.067307692	7	0.153846154	16	0	The cessation of mitosis in the central nervous system of the albino rat	1912	0	0		1	"Allen, E"		allen_e_91
+0.043010753	107903	0.010752688	1	0.032258065	3	0	A cytoarchitectural atlas of the brain stem of the macaccus rhesus	1923	0	0		1	"Mussen, AT"		mussen_at
+0.159090909	129784	0.011363636	1	0.147727273	13	0	The mesencephalic root of the fifth nerve - A comparative anatomical study	1928	0	0		1	"Weinberg, E"		weinberg_e
+0.034482759	138743	0.011494253	1	0.022988506	2	0	The embryonic and post embryonic development of the cerebral cortex of humans	1929	0	0		1	"Filimonoff, IN"		filimonoff_in

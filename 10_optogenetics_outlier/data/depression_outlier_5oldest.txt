@@ -1,0 +1,6 @@
+Total	#Columns: article key	in degree in context age-tapered	in degree in context	in degree out of context	in degree out of context age tapered	tf-idf score (-1.0 if it is the article itself)	title	year	"cited by article (1 if cited, 0 if not, -1 if article itself)"	"included in who to call (1 if included, 0 if not)"	author number					
+0.087719298	20168	0.00877193	1	0.078947368	9	0	The submaximal electrical response of nerve to a single stimulus	1902	0	0		1	"Gotch, F"		gotch_f_1	
+0.362831858	25334	0.008849558	1	0.353982301	40	0	Retroactive amnesia: Illustrative cases and a tentative explanation.	1903	0	0		1	"Burnham, WH"		burnham_wh	
+0.559633028	45289	0.009174312	1	0.550458716	60	0	"A NEW TOPOGRAPHICAL SURVEY OF THE HUMAN CEREBRAL CORTEX, BEING AN ACCOUNT OF THE DISTRIBUTION OF THE ANATOMICALLY DISTINCT CORTICAL AREAS AND THEIR RELATIONSHIP TO THE CEREBRAL SULCI."	1907	0	0		1	"Smith, GE"		smith_ge	Smith
+0.205607477	53567	0.009345794	1	0.196261682	21	0	The myeloarchitecture of the thalamus of the cercopithecus	1909	0	0		1	"Vogt, C"		vogt_c	
+0.586538462	63037	0.009615385	1	0.576923077	60	0	The cessation of mitosis in the central nervous system of the albino rat	1912	0	0		1	"Allen, E"		allen_e_91	
