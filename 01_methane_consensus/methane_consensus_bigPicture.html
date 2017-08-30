@@ -73,15 +73,15 @@
 	function preload() {
 		titleFont = loadFont('fonts/Rubik-Medium.ttf');
 		listFont = loadFont ('fonts/Rubik-Regular.ttf');
-		contextTable = loadTable('data/methane_outlier_context.tsv', 'tsv', 'header');
-		yrSeparators = loadImage ('data/methane_outlier_yearLines.png');
+		contextTable = loadTable('data/methane_consensus_context.txt', 'tsv', 'header');
+		//yrSeparators = loadImage ('data/methane_outlier_yearLines.png');
 		similarityGuide = loadImage ('data/similarityArrows.png');
 		citationGuide = loadImage ('data/citationArrows.png');
 	}
 
 	function setup() {
 		// createCanvas(990, 750);
-		createCanvas(990, 1110);
+		createCanvas(990, 760);
 
 
 		// ---- Margins -----
@@ -228,23 +228,23 @@
 			noStroke();
 			fill(0);
 			ellipse(buttonX1, bottomButtonsMargin, 9, 9);
-			tint (255, alphaVal);
-			image(yrSeparators, 0, 0);
-			alphaVal += 30;
+			// tint (255, alphaVal);
+			// image(yrSeparators, 0, 0);
+			// alphaVal += 30;
 		} else if (arrangeBy == 2) {
 			noStroke();
 			fill(0);
 			ellipse(buttonX2, bottomButtonsMargin, 9, 9);
-			tint (255, alphaVal);
-			image(similarityGuide, 0, 0);
-			alphaVal += 30;
+			// tint (255, alphaVal);
+			// image(similarityGuide, 0, 0);
+			// alphaVal += 30;
 		} else if (arrangeBy == 3) {
 			noStroke();
 			fill(0);
 			ellipse(buttonX3, bottomButtonsMargin, 9, 9);
-			tint (255, alphaVal);
-			image(citationGuide, 0, 0);
-			alphaVal += 30;
+			// tint (255, alphaVal);
+			// image(citationGuide, 0, 0);
+			// alphaVal += 30;
 		}
 
 
