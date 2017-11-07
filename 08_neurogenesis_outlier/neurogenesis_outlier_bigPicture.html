@@ -311,6 +311,11 @@ function Article (ID_, indegree_, tf_idf_, title_, year_, isCited_, x_, y_, auth
 	this.colorAmt = map(this.indegree, minIndegree, maxIndegree, 0, 1);
 	this.c = lerpColor(c1, c2, this.colorAmt);
 
+  if (this.tf_idf == -1) {
+    this.tf_idf = 100;
+    this.indegree = 100;
+  }
+
 	// Last digit of the year --> string
 	this.yearString = this.year.toString();
 	this.yrString = this.yearString.slice(3);
