@@ -92,7 +92,7 @@
     textFont(listFont);
     fill(0);
     noStroke();
-    for (var i = 0; i < 5; i++) {      
+    for (var i = 0; i < 5; i++) {
       mostCited[i].display(margin, width - margin, topYListMargin1 + rowHeight/2 + i * rowHeight);
       mostRecent[i].display(margin, width - margin, topYListMargin2 + rowHeight/2 + i * rowHeight);
       oldest[i].display(margin, width - margin, topYListMargin3 + rowHeight/2 + i * rowHeight);
@@ -126,7 +126,7 @@
 
   function Article (line) {
     this.infoPieces = split (line, '\t');
-    this.articleName = this.infoPieces[6];
+    this.articleName = this.infoPieces[6].replace(/"/g, "");
     this.indegreeIN = this.infoPieces[1];
     this.indegreOUT = this.infoPieces[3];
     this.tf_idf = this.infoPieces[5];
@@ -138,7 +138,7 @@
       if (this.infoPieces[i] == ''){
         break;
       }
-      this.authorNames[j] = this.infoPieces[i];
+      this.authorNames[j] = this.infoPieces[i].replace(/"/g, "");
       j = j+1;
     }
 

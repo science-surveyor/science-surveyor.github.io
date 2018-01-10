@@ -52,20 +52,21 @@ function preload() {
 
 
 function setup() {
-  createCanvas(990, 580);
+  createCanvas(990, 380);
 
   margin = width/30;
   topTextMargin = 3 * margin;
   rowHeight = 36;
   headerMargin = 3.5 * margin
-  topListMargin = headerMargin + rowHeight / 2;
+  // topListMargin = headerMargin + rowHeight / 2;
+  topListMargin = headerMargin;
   bottomMargin = height - margin;
   leftMargin = 0.5 * margin;
   rightTxtMargin = width - margin;
   rightMargin = width - 0.5 * margin;
   listX1 = margin;
   listX2 = width/2 - 6 * margin;
-  listX3 = width/2 + 2 * margin;
+  listX3 = width/2 + margin;
 
   println("Row Height: " + rowHeight);
   readData();
@@ -79,8 +80,10 @@ function draw() {
   background(250);
 
   // Dotted Lines
-  for (var i = 0; i <= 10; i++) {
-    dottedLine(leftMargin, rightMargin, topListMargin + i * rowHeight);
+  for (var i = 0; i <= 5; i++) {
+    // dottedLine(leftMargin, rightMargin, topListMargin + i * rowHeight);
+    dottedLine(leftMargin, width/2 - 10, topListMargin + i * rowHeight);
+    dottedLine(width/2 + 10, rightMargin, topListMargin + i * rowHeight);
   }
 
   // Title
@@ -96,16 +99,20 @@ function draw() {
   text("Highly cited authors doing similar work:", width / 2, 2.2 * margin);
 
   // Header
-  textAlign(LEFT, CENTER);
-  text("Name", listX1, headerMargin);
-  text("Email", listX2, headerMargin);
-  text("Institution", listX3, headerMargin);
+  // textAlign(LEFT, CENTER);
+  // text("Name", listX1, headerMargin);
+  // text("Email", listX2, headerMargin);
+  // text("Institution", listX3, headerMargin);
 
   // WTC List
   textFont(listFont);
   textSize (14);
-  for (var i = 0; i < 10; i++) {
-    wtcList[i].display(listX1, listX2, listX3, i+1);
+  for (var i = 0; i < 5; i++) {
+    wtcList[i].display(listX1, i+1);
+  }
+
+  for (var i = 5; i < 10; i++) {
+    wtcList[i].display(listX3, i-4);
   }
 
   textAlign(LEFT, CENTER);
@@ -150,8 +157,8 @@ function draw() {
 }
 
 function dottedLine(x1, x2, y) {
-  for (var i = 0; i <= 150; i++) {
-    var x = lerp(x1, x2, i / 150);
+  for (var i = 0; i <= 80; i++) {
+    var x = lerp(x1, x2, i / 80);
     stroke(0, 200);
     noFill();
     strokeWeight(1);
@@ -179,7 +186,7 @@ function removeCitedAuthors(arrObj) {
 
 function Contact (line) {
   this.pieces = split (line, '\t');
-  this.name   = this.pieces[0];
+  this.name   = str(this.pieces[0]);
   this.email  = this.pieces[1];
   this.institution = this.pieces[2];
   this.nCitations = this.pieces[3];
@@ -187,22 +194,24 @@ function Contact (line) {
   this.numOfStudies = this.pieces[5];
   this.numCitedByTarget = this.pieces[6];
 
+  this.cleanName = this.name.replace(/"/g, "");
+
   if (this.numCitedByTarget == 0) {
     this.isCited = false;
   } else {
     this.isCited = true;
   }
 
-  this.display = function (x1, x2, x3, y) {
+  this.display = function (x1, n) {
     if (this.isCited) {
       fill(255, 35, 35);
     } else {
       fill(0);
     }
     textAlign (LEFT, CENTER);
-    text (this.name, x1, (topListMargin + y * rowHeight) - rowHeight / 2);    
-    text (this.email, x2, (topListMargin + y * rowHeight) - rowHeight / 2);
-    text (this.institution, x3, (topListMargin + y * rowHeight) - rowHeight / 2);
+    text (this.cleanName, x1, (topListMargin + n * rowHeight) - rowHeight / 2);
+    // text (this.email, x2, (topListMargin + y * rowHeight) - rowHeight / 2);
+    // text (this.institution, x3, (topListMargin + y * rowHeight) - rowHeight / 2);
   }
 }
 
