@@ -374,8 +374,8 @@ function Article (ID_, indegree_, tf_idf_, title_, year_, isCited_, x_, y_, auth
     		textAlign(LEFT, CENTER);
     		textFont(listFont);
     		textSize (14);
-    		text(this.articleName, margin, infoMargin);
-    		text(this.authorName + " et al.", margin, infoMargin + 0.7 * margin);
+    		text(this.articleName.replace(/"/g, ""), margin, infoMargin);
+    		text(this.authorName.replace(/"/g, "") + " et al.", margin, infoMargin + 0.7 * margin);
     		text(this.year, margin, infoMargin + 1.4 * margin);
 
 

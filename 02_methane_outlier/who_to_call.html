@@ -82,8 +82,8 @@ function draw() {
   // Dotted Lines
   for (var i = 0; i <= 5; i++) {
     // dottedLine(leftMargin, rightMargin, topListMargin + i * rowHeight);
-    dottedLine(leftMargin, width/2 - 10, topListMargin + i * rowHeight);
-    dottedLine(width/2 + 10, rightMargin, topListMargin + i * rowHeight);
+    dottedLine(leftMargin, width/2 - margin, topListMargin + i * rowHeight);
+    dottedLine(width/2 + margin/2, rightMargin - margin, topListMargin + i * rowHeight);
   }
 
   // Title
@@ -135,7 +135,7 @@ function draw() {
     fill(250);
     noStroke();
     rect(0, 2 * margin, width, height - 2 * margin);
-    var basics = "Science Surveyor analyzes the context to create a list to help journalists find possible sources. It first identifies the 20 studies that are most similar to the new study in terms of language—using a statistical measure called tf-idf, one way of identifying the most important words in a collection of studies or in a database. Surveyor then ranks those 20 studies’ authors by how frequently cited they are. After they are ranked in this way, Science Surveyor applies a process called age-tapering: it counts how many times a paper is cited by other papers in the context and then divides by age. This is done because older papers tend to have higher citation counts since they have been around longer, so age tapering makes the comparison between old and new studies more fair by down-weighting the scores for old paper.  Finally, Science Surveyor displays the authors of the 10 most similar, most highly cited studies, highlighting in red authors who are cited by the new study. Authors cited by the study may be most familiar with this research line. Authors not cited by the new study may be good outside sources and might have a different perspective on the field.";
+    var basics = "Science Surveyor analyzes the context to create a list to help journalists find possible sources. It first identifies the 20 studies that are most similar to the new study in terms of language—using a statistical measure called tf-idf, one way of identifying the most important words in a collection of studies or in a database. Surveyor then ranks those 20 studies’ authors by how frequently cited they are. After they are ranked in this way, Science Surveyor applies a process called age-tapering: it counts how many times a paper is cited by other papers in the context and then divides by age. This is done because older papers tend to have higher citation counts since they have been around longer, so age tapering makes the comparison between old and new studies more fair by down-weighting the scores for old paper. Finally, Science Surveyor displays the authors of the 10 most similar, most highly cited studies, highlighting in red authors who are cited by the new study. Authors cited by the study may be most familiar with this research line. Authors not cited by the new study may be good outside sources and might have a different perspective on the field.";
     fill(0);
     textAlign(LEFT, TOP);
     textFont(listFont);
@@ -186,7 +186,7 @@ function removeCitedAuthors(arrObj) {
 
 function Contact (line) {
   this.pieces = split (line, '\t');
-  this.name   = str(this.pieces[0]);
+  this.name   = this.pieces[0];
   this.email  = this.pieces[1];
   this.institution = this.pieces[2];
   this.nCitations = this.pieces[3];
@@ -218,6 +218,12 @@ function Contact (line) {
 function mousePressed() {
   if (mouseX > rightTxtMargin - textWidth(hyperlink) && mouseX < rightTxtMargin && mouseY > bottomMargin - textAscent() && mouseY < bottomMargin + textDescent() + 3) {
     howThisWorks =! howThisWorks;
+  }
+}
+
+function keyTyped() {
+  if (key === 'p'){
+    saveCanvas();
   }
 }
 
