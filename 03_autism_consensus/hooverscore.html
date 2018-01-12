@@ -169,7 +169,7 @@
 
   function Article (line) {
     this.infoPieces = split (line, '\t');
-    this.articleName = this.infoPieces[6];
+    this.articleName = this.infoPieces[6].replace(/"/g, "");
     this.indegreeIN = this.infoPieces[1];
     this.indegreOUT = this.infoPieces[3];
     this.tf_idf = this.infoPieces[5];
@@ -181,7 +181,7 @@
       if (this.infoPieces[i] == ''){
         break;
       }
-      this.authorNames[j] = this.infoPieces[i];
+      this.authorNames[j] = this.infoPieces[i].replace(/"/g, "");
       j = j+1;
     }
 
@@ -197,7 +197,7 @@
         fill(c1);
       }
       rectMode(CORNER);
-      rect(x, y, rectSize, rectSize);      
+      rect(x, y, rectSize, rectSize);
     }
 
     this.displayCited = function (x, y) {
